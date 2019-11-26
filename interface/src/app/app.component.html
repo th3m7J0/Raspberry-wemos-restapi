@@ -1,0 +1,55 @@
+<html>
+  <head>
+
+  </head>
+<body class="">
+<!-- Image and text -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
+      Bootstrap
+    </a>
+  </nav>
+  <div class="row w-100 mt-5">
+    <div class="col-lg-4 col-md-6 offset-lg-1 form-inline my-1">
+      <input id="ipInput" type="text" class="form-control  w-100" name="ip" placeholder="client ip address" [(ngModel)]="ipAddress">
+    </div>
+    <div class="col-lg-4 col-md-6 form-inline input-group my-1">
+      <input id="data" type="text" class="form-control  " name="interval" placeholder="send some data to client" [(ngModel)]="data">
+      <div class="input-group-append">
+        <input type="button" (click)="sendData()" class="form-control  btn btn-info " value="send">
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-12 form-inline my-1">
+      <button id="switch" class="btn btn-info form-control w-100 " (click)="sendEvent()">switch Light</button>
+    </div>
+  </div>
+  <div class="row mx-5">
+    <div class="col-lg-6 col-md-12 mt-5">
+      <table class="table rounded border">
+        <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Temperature</th>
+          <th scope="col">Humidity</th>
+          <th scope="col">Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-6 col-md-12 mt-3">
+      <canvas
+        baseChart
+        [chartType]="'line'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartClick)="onChartClick($event)">
+      </canvas>
+    </div>
+  </div>
+</body>
+</html>
